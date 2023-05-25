@@ -14,7 +14,7 @@ bot.start((ctx) => ctx.reply("Welcome , You can ask anything from me"));
 
 bot.help((ctx) => {
   ctx.reply(
-    "This bot can perform the following command \n /image -> to create image from text \n /ask -> ank anything from me "
+    "This bot can perform the following command \n /image -> to create image from text \n /ask -> ask anything from me "
   );
 });
 
@@ -55,9 +55,13 @@ bot.command("ask", async (ctx) => {
   if (text) {
     ctx.sendChatAction("typing");
     const res = await getChat(text);
-    if (res) {
-      ctx.telegram.sendMessage(ctx.message.chat.id, res, {
-        reply_to_message_id: ctx.message.message_id,
+    const myMessage = "✅JOIN - @mr_unique_hacker";
+    const myEmoji = "▫️▪️▫️▪️▫️▪️▫️▪️▫️";
+    const combinedMessage = `${res}\n\n${myEmoji}\n${myMessage}\n${myEmoji}`;
+    if (combinedMessage) {
+      ctx.telegram.sendMessage(ctx.message.chat.id, combinedMessage,
+                               {
+        reply_to_message_id: ctx.message.message_id,  
       });
     }
   } else {
