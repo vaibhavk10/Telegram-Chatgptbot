@@ -55,7 +55,7 @@ bot.command("ask", async (ctx) => {
   if (text) {
     ctx.sendChatAction("typing");
     const res = await getChat(text);
-    const myMessage = "JOIN - @mr_unique_hacker";
+    const myMessage = "";
     const myEmoji = "══════════════════";
     const combinedMessage = `${res}\n\n${myEmoji}\n${myMessage}\n${myEmoji}`;
     if (combinedMessage) {
